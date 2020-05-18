@@ -3,14 +3,28 @@
 [![Build Status](https://travis-ci.com/fcrawford/covid19_ct_report1.svg?branch=master)](https://travis-ci.com/fcrawford/covid19_ct_report1) 
 [![GitHub Release](https://img.shields.io/badge/download-latest-brightgreen.svg)](https://github.com/fcrawford/covid19_ct_report1/releases/latest) 
 
-This repository contains the source files for the report "COVID-19 projections for Connecticut: Summer 2020 reopening scenarios" by Forrest W. Crawford, Olga Morozova, and Zehang Richard Li.  
+This repository contains source files for the report "COVID-19 projections for Connecticut: Summer 2020 reopening scenarios" by Forrest W. Crawford, Olga Morozova, and Zehang Richard Li.  
 
 
-Project page 
+## COVID-19 projections for Connecticut project page 
 
-Releases 
+http://crawford-lab.github.io/tree/master/covid19_ct
+
+
+
+## Releases for this report
 https://github.com/fcrawford/covid19_ct_report1/releases
 
-Citation 
+
+## Citation 
+
+> Forrest W. Crawford, Olga Morozova, and Zehang Richard Li. "COVID-19 projections for Connecticut: Summer 2020 reopening scenarios" 2020 
+
+
+Bibtex: 
+
+> @article{crawford2020covid, ... }
+
+
 
 
