@@ -1,0 +1,9 @@
+*.aux
+*.out
+*.log
+*.bbl
+*.blg
+.*.swp
+report1.pdf
+
+
