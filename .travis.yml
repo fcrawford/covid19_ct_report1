@@ -1,23 +1,27 @@
 language: generic
-
 install:
-  - export PATH="$HOME/miniconda/bin:$PATH"
-  - if ! command -v conda > /dev/null; then
-      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
-      bash miniconda.sh -b -p $HOME/miniconda -u;
-      conda config --add channels conda-forge;
-      conda config --set always_yes yes;
-      conda install tectonic==0.1.11;
-    fi
-  - conda install -c malramsay biber==2.11 --yes
-  - conda info -a
+- export PATH="$HOME/miniconda/bin:$PATH"
+- if ! command -v conda > /dev/null; then wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+  -O miniconda.sh; bash miniconda.sh -b -p $HOME/miniconda -u; conda config --add
+  channels conda-forge; conda config --set always_yes yes; conda install tectonic==0.1.11;
+  fi
+- conda install -c malramsay biber==2.11 --yes
+- conda info -a
 cache:
   directories:
-    - $HOME/miniconda
-    - $HOME/.cache/Tectonic
-script: 
- - tectonic --keep-intermediates --reruns 0 ./report1.tex
- - if [ -f "main.bcf" ]; then biber report1; fi
- - tectonic ./report1.tex --print
-
-
+  - "$HOME/miniconda"
+  - "$HOME/.cache/Tectonic"
+script:
+- tectonic --keep-intermediates --reruns 0 ./report1.tex
+- if [ -f "main.bcf" ]; then biber report1; fi
+- tectonic ./report1.tex --print
+deploy:
+  provider: releases
+  on:
+    tags: true
+  api_key:
+    secure: jK7g0mwRAoUYAIUp4lKqwsi3PbxPZdDuV+8pjZJc7jktDme2bJCT9EktAdhMFxtGrCxA49ZanIIRPYNKbGnnJJwYKKsgfJJG1JycUvfP+E8fkQPIn2YQjB4VI4+VKuwEf2iowODI6zMTak6GQhcmdb3x//u4yd/JRd2REzGvYwRK46V/uQY7DUnT3hkSY0BwL0CduNxhKnyQDh5Yj/V9+NRklUXepdUtjkMlifBQbA1l37ar0CGXGuJ3WcjVObXrEN1ZNrvWTh8/4k7lwHU2HxSJySjcDe/AI8jAATisaw30n7B0c+re55OW7iQ9bLj7cuEml1r1gL4R6m15I5hNdtbULD86GT0eiZ66PO+9vzf5TT/NrhDcm1OYHahSNl5k+WOEWgit+0M60a9jqQvJgMt09IJDa3sbvns/1JZteZ2XeK0MfNTs+FWrETVX0Vq5GYU1TtJ1MYaoT5iK640qPhHgwGY00psSmG6g+CfISi8ECs+aMRunfRN5dN7zKlHblrJnp2zfUR7fQO7EloWLwNy7jqvTiVL7SC+K8bj1IcUbaXMUkfqrUReALNlo1q29jTeE6BmvJMwG8tZPiG8ODy7Hf6RJ4JcfJqWeOk041LoTFRgnTc83zc7HV6f3nzN0DOjiR4JSHNYdtil6NFDUkxUcuIkdZEbM2k1qJdqVLpo=
+  file: report1.pdf
+  on:
+    repo: fcrawford/covid19_ct_report1
+  skip_cleanup: 'true'
