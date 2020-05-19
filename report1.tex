@@ -174,21 +174,22 @@ We present projections of COVID-19 incidence, prevalence, hospitalizations, and 
 
 County-level hospitalizations are obtained from the Connecticut Hospital Association~\citep{CHAwebsite}. We obtained county populations from the 2014--2018 estimates of the American Community Survey~\citep{acs2018} and geographic boundary files were downloaded from the Connecticut Department of Environmental Protection~\citep{shapefile}. 
 
-A separate technical report describes the data, transmission model, calibration, and uncertainty calculation in greater detail \citep{morozova2020tech}.  Briefly, we employ a modified susceptible-exposed-infectious-removed (SEIR) transmission model that accommodates asymptomatic, mildly symptomatic, and severe cases, with additional compartments for hospitalizations, unhospitalized severe infections in the case of hospital overflow, and deaths. Though we focus here on projections for the state of Connecticut as a whole, the model is structured by county, with adjacent counties having more cross-transmission than non-adjacent counties.  Reopening scenarios are represented in the projection model by a schedule of proportional increases in contact, beginning on May 20, 2020. Slow versus fast reopening scenarios are parameterized by monthly versus weekly release of 10\% of suppressed contact. 
+A separate technical report describes the data, transmission model, calibration, and uncertainty calculation in greater detail \citep{morozova2020tech}.  Briefly, we employ a modified compartmental susceptible-exposed-infectious-removed (SEIR) transmission model that accommodates asymptomatic, mildly symptomatic, and severe cases, with additional compartments for hospitalizations, unhospitalized severe infections in the case of hospital overflow, patients in nursing homes and assisted living facilities, and deaths. 
+Exposed individuals are assumed to become infectious 4 days after exposure (ref). Mildly symptomatic individuals are assumed to self-isolate shortly after they develop symptoms and remain in isolation until recovery. Asymptomatic individuals are assumed to shed the virus at lower intensity compared to symptomatic cases, but remain infectious for a longer period in the absence of wide-spread testing. All severe cases are assumed to require hospitalization, and those occurring in closed facilities, such as nursing homes or assisted living facilities, are tracked separately. Only severe cases can result in death.  We assume that COVID-19 infection confers lasting immunity to new infection at least within the projection time interval.  
 
-Following reopening, viral testing and contact tracing are assumed to increase the rate of isolation of infected individuals.  \comment{Explain and give param values}
+Due to high uncertainty about the proportion of asymptomatic infections (ref) in the absence of representative sero-prevalence surveys, we consider three scenarios with a low (0.36), medium (0.5) and high (0.7) proportions of asymptomatic infections. We further assume that 10\% of symptomatic infections are severe (ref). Severe cases transition through a latent period, pre-hospitalization infectious period, hospitalization period, and eventually either recover or die. We assume that hospitalizations and deaths are reported with a lag and account for this lag when we match projections to observations. Reporting lags along with average time spent at various stages preceding hospitalization and death are calibrated to observations. Average reporting lag for hospitalizations is shorter than that of deaths due to a latter be a mixture of deaths occurring in hospitals and in nursing homes.  
 
-\comment{Olya: please give a high-level overview of the model and important parameter values}
+We consider a wide range of plausible values of the key model parameters and calibrate a joint posterior distribution of these parameters to observations assuming Poisson likelihood. Calibration was performed separately for each scenario (low, medium, and high asymptomatic fraction).
 
-We assume that COVID-19 infection confers lasting immunity to new infection at least within the projection time interval.  
+Though we focus here on projections for the state of Connecticut as a whole, the model is structured by county, with adjacent counties having more cross-transmission than non-adjacent counties.  Reopening scenarios are represented in the projection model by a schedule of proportional increases in contact, beginning on May 20, 2020. Slow versus fast reopening scenarios are parameterized by monthly versus weekly release of 10\% of suppressed contact. 
+Following reopening, viral testing and contact tracing are assumed to increase the rate of isolation of infected individuals. In particular, we assume that asymptomatic individuals are infectious for an average of 7 days, and mildly symptomatic cases are infectious for 4 days, of which 1.5 days is assumed to constitute a presymptomatic infectious period (ref). Wide-spread testing and contact tracing may reduce the average duration of infectiousness of asymptomatic individuals to XX days and mildly symptomatic to XX days \comment{calculate based on our working assumption about testing effects.}
 
-Transmissibility ...
+%\comment{Olya: please give a high-level overview of the model and important parameter values}
+%Transmissibility ...
+%Asymptomatic/mild/severe fractions...
+%\comment{Briefly discuss lagging hospitalizations and deaths to match reporting.}
 
-Asymptomatic/mild/severe fractions...
-
-\comment{Briefly discuss lagging hospitalizations and deaths to match reporting.}
-
-\comment{Summarize calibration and statistical fitting in 1-2 sentences. }
+%\comment{Summarize calibration and statistical fitting in 1-2 sentences. }
 
 Figure \ref{fig:calibration} shows current COVID-19 hospitalization census and cumulative death projections from March 1 to May 20, 2020.  Projections match observed data well, and data points largely fall within prediction uncertainty regions. 
 
