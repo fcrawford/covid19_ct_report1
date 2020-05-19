@@ -29,6 +29,8 @@
 
 \usepackage{tikz-cd}
 \usepackage[hyphens]{url}
+\urlstyle{same}
+
 \usepackage{wrapfig}
 \usepackage{mathrsfs}
 \usepackage{mdframed}
@@ -120,7 +122,7 @@
 
 
 
-\title{COVID-19 projections for Connecticut: \\ Summer 2020 reopening scenarios}
+\title{COVID-19 projections for reopening Connecticut}
 
 \author{
   Forrest W. Crawford$^{1,2,3,4}$,
@@ -157,7 +159,10 @@ On May 8, Governor Lamont issued plans and guidance for reopening the state, a p
 
 
 % Need 
+
 As the state reopens, public policy decision-makers need access to reliable information about the current state of the pandemic and likely future outcomes.  Connecticut decision-makers already have access to near real-time information about COVID-19 case counts, hospitalizations, and deaths.  However, these data may not provide timely insight into the current and future dynamics of COVID-19 outcomes.  First, because viral testing of asymptomatic individuals is not yet widespread, symptomatic individuals at least 4-5 days from infection consititute the majority of testing recipients [ref], and COVID-19 case counts or positive test proportion may be poor surrogate measures of current infection prevalence [ref].   Hospitalization may not occur until more than 2 or 3 weeks following infection, with deaths lagged even further.  Second, current data may not provide information about what is likely to occur under reopening plans or interventions to be implemented in the future. As the state scales up its testing capacity, contact tracing, and initiates phased reopening of businesses, historical data on cases, hospitalizations, and deaths may not give insight into the possible effects of these future interventions.  Early warning systems using these metrics may fail to provide state policymakers with the information they need to initiate a reversion to a more restrictive phase or implement other interventions to blunt a rising wave of new infections. 
+
+early warning about possibility of hospital overflow. 
 
 
 % What we do in this report 
@@ -166,19 +171,25 @@ In this report, we use a mathematical infectious disease transmission model to p
 
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section*{COVID-19 projections} 
 
-We present projections of COVID-19 incidence, prevalence, hospitalizations, and deaths from March 1 to August 31.  Projections prior to May 20, 2020 are calibrated to historical hospitalization and death data obtained from [data sources].  Projections beyond May 20 depend on assumptions about the nature of contact and viral testing in the future, under the Governor's plan for reopening the state.  Projections and 90\% uncertainty intervals show the range of possible outcomes over the summer in under ``slow'' and ``fast'' reopening scenarios.  
+We present projections of COVID-19 incidence, prevalence, hospitalizations, and deaths from March 1 to August 31, 2020.  Projections prior to May 20, 2020 are calibrated to historical hospitalization and death data obtained from [data sources].  Projections beyond May 20 depend on assumptions about the nature of contact and viral testing in the future, under the Governor's plan for reopening the state.  Projections and 90\% uncertainty intervals show the range of possible outcomes over the summer in under ``slow'' and ``fast'' reopening scenarios.  
 
-A separate technical report describes the data, transmission model, calibration, and uncertainty calculation in greater detail \citep{morozova2020tech}.  Briefly, we employ a modified susceptible-exposed-infectious-removed (SEIR) transmission model that accommodates asymptomatic, mildly symptomatic, and severe cases, with additional compartments for hospitalizations, unhospitalized severe infections in the case of hospital overflow, and deaths.  
+A separate technical report describes the data, transmission model, calibration, and uncertainty calculation in greater detail \citep{morozova2020tech}.  Briefly, we employ a modified susceptible-exposed-infectious-removed (SEIR) transmission model that accommodates asymptomatic, mildly symptomatic, and severe cases, with additional compartments for hospitalizations, unhospitalized severe infections in the case of hospital overflow, and deaths.  Though we focus here on projections for the state of Connecticut as a whole, the model is structured by county, with adjacent counties having more cross-transmission than non-adjacent counties.  Reopening scenarios are represented in the projection model by a schedule of proportional increases in contact, beginning on May 20, 2020. Slow versus fast reopening scenarios are parameterized by monthly versus weekly release of 10\% of suppressed contact. 
 
-We assume ... 
-\comment{Olya: please give a high-level overview of the model and important parameter values. Summarize calibration and statistical fitting in 1-2 sentences. }
+Following reopening, viral testing and contact tracing are assumed to increase the rate of isolation of infected individuals.  \comment{Explain and give param values}
 
-\comment{Olya: please briefly discuss lagging hospitalizations and deaths to match reporting.}
+\comment{Olya: please give a high-level overview of the model and important parameter values}
+
+We assume that COVID-19 infection confers lasting immunity to new infection at least within the projection time interval.  
+
+Asymptomatic/mild/severe fractions...
+
+\comment{Briefly discuss lagging hospitalizations and deaths to match reporting.}
+
+\comment{Summarize calibration and statistical fitting in 1-2 sentences. }
 
 Figure \ref{fig:calibration} shows current COVID-19 hospitalization census and cumulative death projections from March 1 to May 20, 2020.  Projections match observed data well, and data points largely fall within prediction uncertainty regions. 
 
@@ -191,14 +202,32 @@ Figure \ref{fig:calibration} shows current COVID-19 hospitalization census and c
 \end{figure}
 
 
-\subsection*{Summer projections under slow reopening} 
+\subsection*{Projections under slow reopening} 
+
+Figure \ref{fig:slow} shows projections of daily incidence, cumulative incidence, hospitalizations, and deaths under a ``slow'' reopening scenario. At one-month intervals, 10\% of the suppressed contact (relative to March 1 baseline) is released. In these projections, \comment{incidence...} Hospital census continues its gradual decline through June, flattening in July, and rising again in August. Deaths rise slowly, with the greatest increases occurring in August. 
+
+
+\begin{figure}
+\centering
+\comment{slow reopen placeholder}
+%\includegraphics[width=\textwidth]{figures/slow.pdf}
+\caption{Projections under a ``slow'' reopening scenario. }
+\label{fig:slow}
+\end{figure}
 
 
 
+\subsection*{Projections under fast reopening} 
 
+Figure \ref{fig:fast} shows projections of daily incidence, cumulative incidence, hospitalizations, and deaths under a ``fast'' reopening scenario. At one-week intervals, 10\% of the suppressed contact is released.   
 
-
-\subsection*{Summer projections under fast reopening} 
+\begin{figure}
+\centering
+\comment{fast reopen placeholder}
+%\includegraphics[width=\textwidth]{figures/fast.pdf}
+\caption{Projections under a ``fast'' reopening scenario. }
+\label{fig:fast}
+\end{figure}
 
 
 
@@ -208,7 +237,7 @@ Figure \ref{fig:calibration} shows current COVID-19 hospitalization census and c
 
 \section*{Implications}
 
-The COVID-19 outbreak in Connecticut is currently declining, with hospitalization census and the number of deaths per day decreasing since mid April.  However, as the state reopens, there is a risk that increased contact will result in a surge of COVID-19 transmission, leading to an increase in hospitalizations and deaths.  
+The COVID-19 outbreak in Connecticut is currently declining, with hospitalization census and the number of deaths per day decreasing since mid April.  However, as the state reopens, there is a risk that increased contact will result in a second wave of COVID-19 transmission, leading to an increase in hospitalizations and deaths.  If contact remains low throughout the summer, with only minimal increases due to reopening, a possible second wave will be blunted and pushed into the future.  On the other hand, if contact returns quickly to a level seen in early March, then a resurgence in hospitalizations and deaths is likely to occur in August.  Importantly, Connecticut decision-makers may not know which of these scenarios is occurring until sometime in July.  
 
 
 \subsection*{Risk of resurgence following reopening} 
@@ -218,13 +247,13 @@ Projections under high asymptomatic fraction or fast reopening suggest that incr
 
 \subsection*{Importance of testing to detect changes in incidence}
 
-Enhanced viral testing, especially of asymptomatic individuals, may help provide an early warning of increased transmission following reopening.  Because there is a roughly 3-week lag between a new infection and possible hospitalization of the infected individual, widespread and frequent testing could detect increased incidence before the first new symptomatic cases present to the hospital. 
+Enhanced viral testing, especially of asymptomatic individuals, may help provide an early warning of increased transmission following reopening.  Because there is a roughly 3-week lag between a new infection and possible hospitalization of the infected individual, widespread and frequent testing could detect increased incidence before the first new symptomatic cases present to the hospital.  
 
 Daily new infections are not observable, but can be estimated...
 
+Figure \ref{fig:dailyincidence} shows daily incidence 
 
 
-[show daily incidence plots]
 
 
 \begin{figure}
@@ -234,14 +263,17 @@ Daily new infections are not observable, but can be estimated...
 \label{fig:dailyncidence}
 \end{figure}
 
-Figure \ref{fig:dailyincidence} shows daily incidence 
 
 
 
-\subsection*{Epidemiological study design}
+\subsection*{Model projections to inform seroprevalence studies}
 
-Expanded antibody testing in Connecticut could dramatically increase certainty about seroprevalence -- the number of people who have evidence of prior infection. If this proportion were more precisely known, the fraction of infected individuals who are asymptomatic could be estimated with greater certainty.  This knowledge would reduce uncertainty in future projections.  
-sample size calculations for seroprevalence study
+Expanded antibody testing in Connecticut could dramatically improve knowledge about seroprevalence -- the proportion of people in Connecticut who have evidence of prior COVID-19 infection. If this proportion were more precisely known, the fraction of infected individuals who are asymptomatic could be estimated with greater certainty,   This knowledge would reduce uncertainty in future projections.  In order to design a valid seroprevalence study, researchers need to calculate the minimum sample size required to obtain an estimate that is sufficiently precise, requiring an estimate of the proportion of individuals who would test positive for antibodies. 
+
+
+Model projections offer the opportunity to evaluate this quantity on future dates during which a proposed seroprevalence study might be conducted.  Figure \ref{fig:cumincidence} shows projections of cumulative incidence among alive non-hospitalized individuals who might be sampled and tested in a seroprevalence taking place on future dates.  
+
+\comment{Olya, can you write a few sentences about how knowing cumulative incidence would help us learn the infection fatality ratio, asymptomatic fraction, etc? }
 
 
 \begin{figure}
@@ -251,22 +283,16 @@ sample size calculations for seroprevalence study
 \label{fig:cumincidence}
 \end{figure}
 
-Figure \ref{fig:cumincidence} shows cumulative incidence among individuals currently alive....
-
-
-\comment{Olya, can you write a few sentences about how knowing cumulative incidence would help us learn the infection fatality ratio, asymptomatic fraction, etc? }
 
 
 
-\subsection*{Uncertainty about child care, summer camp, and school reopening}
+
+\subsection*{Uncertainty about transmissibility in children}
 
 Children are unlikely to experience severe symptoms when infected with COVID-19. For this reason, epidemiologists do not yet know how transmissible school-age children may be when they are infected, and epidemiological studies have provided conflicting evidence regarding viral shedding and transmissibility in children. Because Connecticut closed K-12 schools approximately only one week before the stay-at-home order took effect, we do not have specific information about the isolated effect of closing schools on the subsequent reduction in transmission.  If child care and summer camps reopen as planned at the end of June [ref], we may be able to gain information about transmissibility in children from any subsequent increase in cases observed among people who are more likely to be symptomatic.  This information will be useful in projecting COVID-19 dynamics in the Fall if K-12 education will take place in person. 
 
 
 \comment{Olya, can you write a few sentences and give references for what we know and don't know about transmission in children?}
-
-
-
 
 
 
@@ -282,13 +308,13 @@ Children are unlikely to experience severe symptoms when infected with COVID-19.
 %%%%%%%%%%%%%%%%%%%%%%%%5
 
 
-\textbf{Acknowledgements}:
+\textbf{Acknowledgements}: We are grateful to
 Matthew Cartter,
 Joshua Geballe,
 Gregg S. Gonsalves,
 Alexander Karnal,
 Albert Ko 
-
+for helpful comments and feedback. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
