@@ -36,7 +36,7 @@
 \usepackage{dsfont} % blackboard numerals
 
 \usepackage{geometry}
-\geometry{margin=0.5in}
+\geometry{margin=0.75in}
 
 \usepackage{setspace}
 
@@ -141,6 +141,7 @@
 
 \maketitle
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section*{Introduction}
@@ -155,8 +156,11 @@ Connecticut began interventions to slow transmission in mid March 2020.  On Marc
 On May 8, Governor Lamont issued plans and guidance for reopening the state, a process scheduled to begin on May 20.  The Connecticut Department of Economic and Community Development issued rules and guidelines for opening particular business sectors \citep{decd2020coronavirus}. Summer camps will be permitted to open effective June 29, 2020 subject to restrictions on operations.  Connecticut's Shorline State Park beaches will reopen on Memorial Day weekend under restrictions on the size of gatherings, proximity, and face coverings \citep{ct2020parks}.  Contact tracing will be implemented using the \emph{ContaCT} platform \citep{ct2020contact}.  The state plans to scale up COVID-19 PCR testing [ref], but testing capacity is still limited \cite{thomas2020surge}. The state publishes daily testing reports \citep[e.g.][]{ct2020testing}. 
 
 
+% Need 
+As the state reopens, public policy decision-makers need access to reliable information about the current state of the pandemic and likely future outcomes.  Connecticut decision-makers already have access to near real-time information about COVID-19 case counts, hospitalizations, and deaths.  However, these data may not provide timely insight into the current and future dynamics of COVID-19 outcomes.  First, because viral testing of asymptomatic individuals is not yet widespread, symptomatic individuals at least 4-5 days from infection consititute the majority of testing recipients [ref], and COVID-19 case counts or positive test proportion may be poor surrogate measures of current infection prevalence [ref].   Hospitalization may not occur until more than 2 or 3 weeks following infection, with deaths lagged even further.  Second, current data may not provide information about what is likely to occur under reopening plans or interventions to be implemented in the future. As the state scales up its testing capacity, contact tracing, and initiates phased reopening of businesses, historical data on cases, hospitalizations, and deaths may not give insight into the possible effects of these future interventions.  Early warning systems using these metrics may fail to provide state policymakers with the information they need to initiate a reversion to a more restrictive phase or implement other interventions to blunt a rising wave of new infections. 
 
-% summary: 
+
+% What we do in this report 
 
 In this report, we use a mathematical infectious disease transmission model to project COVID-19 incidence, prevalence, hospitalizations, and deaths in the state of Connecticut through August 31, 2020.  We consider population-level contact scenarios informed by the Connecticut Governor's phased reopening plans.  Model parameters are calibrated using data on hospitalizations and deaths in Connecticut and estimates from the literature on clinical epidemiology of SARS-COVID-19.  A separate technical report describes the data, transmission model, and calibration in detail \citep{morozova2020tech}.  The primary purpose of this report is to provide state and local decision-makers with information to plan reopening of the state in a way that minimizes the risk of a resurgence in COVID-19 cases, hospitalizations, and deaths.  The secondary purpose is to assist state agencies and non-governmental organizations in implementation of public health responses, including testing, contact tracing, and design of incidence, infection prevalence, and seroprevalence studies. 
 
@@ -167,30 +171,29 @@ In this report, we use a mathematical infectious disease transmission model to p
 
 \section*{COVID-19 projections} 
 
-We present projections of COVID-19 incidence, prevalence, hospitalizations, and deaths from March 1 to August 31.  Projections prior to \today are calibrated to historical hospitalization and death data obtained from [data sources].  Projections beyond \today depend on assumptions about the nature of contact and viral testing in the future, under the Governor's plan for reopening the state.  Projections and 90\% uncertainty intervals show the range of possible outcomes over the summer in under ``slow'' and ``fast'' reopening scenarios.  
+We present projections of COVID-19 incidence, prevalence, hospitalizations, and deaths from March 1 to August 31.  Projections prior to May 20, 2020 are calibrated to historical hospitalization and death data obtained from [data sources].  Projections beyond May 20 depend on assumptions about the nature of contact and viral testing in the future, under the Governor's plan for reopening the state.  Projections and 90\% uncertainty intervals show the range of possible outcomes over the summer in under ``slow'' and ``fast'' reopening scenarios.  
 
-A separate technical report describes the data, transmission model, calibration, and uncertainty calculation in greater detail \citep{morozova2020tech}.  Briefly, we employ a modified susceptible-exposed-infectious-removed (SEIR) transmission model that accommodates asymptomatic, mildly symptomatic, and severe cases, hospitalizations, and deaths.  
+A separate technical report describes the data, transmission model, calibration, and uncertainty calculation in greater detail \citep{morozova2020tech}.  Briefly, we employ a modified susceptible-exposed-infectious-removed (SEIR) transmission model that accommodates asymptomatic, mildly symptomatic, and severe cases, with additional compartments for hospitalizations, unhospitalized severe infections in the case of hospital overflow, and deaths.  
 
-[Briefly discuss lagging hospitalizations and deaths to match reporting.]
+We assume ... 
+\comment{Olya: please give a high-level overview of the model and important parameter values. Summarize calibration and statistical fitting in 1-2 sentences. }
 
+\comment{Olya: please briefly discuss lagging hospitalizations and deaths to match reporting.}
 
-\subsection*{Calibration and fit to historical data}
-
-
-Figure \ref{fig:calibration} shows hospitalization and death projections from March 1 to May 20, with data points overlaid.  
-
-% \comment{Richard, could you create a figure showing model fit to data for hospitalizations and deaths?}
+Figure \ref{fig:calibration} shows current COVID-19 hospitalization census and cumulative death projections from March 1 to May 20, 2020.  Projections match observed data well, and data points largely fall within prediction uncertainty regions. 
 
 
 \begin{figure}
 \centering
-\includegraphics[width=.9\textwidth]{figures/calibration.pdf}
-\caption{Illustration of model fit to COVID-19 hospitalization and death data in Connecticut. }
+\includegraphics[width=\textwidth]{figures/calibration.pdf}
+\caption{Model projections of current hospitalizations and cumulative deaths, with observed data, from March 1 to May 20, 2020. Solid lines show average model projections and the intervals show 90\% uncertainty regions.  Observed data are overlaid as solid dots.} 
 \label{fig:calibration}
 \end{figure}
 
 
 \subsection*{Summer projections under slow reopening} 
+
+
 
 
 
