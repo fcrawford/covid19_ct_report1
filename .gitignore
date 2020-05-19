@@ -4,6 +4,7 @@
 *.bbl
 *.blg
 .*.swp
+*.gz
 report1.pdf
 
 
