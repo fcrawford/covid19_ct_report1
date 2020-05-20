@@ -17,6 +17,8 @@
 
 \usepackage[sort&compress,numbers]{natbib}
 
+\usepackage{enumitem}
+
 
 \usepackage{mathptmx}
 %\usepackage[scaled]{helvet}
@@ -109,6 +111,7 @@
 \setlength{\bibsep}{0.0pt}
 \setlength{\parskip}{1em}
 \setlength{\parindent}{0.0pt}
+\setlength\itemsep{0em}
 
 
 \allowdisplaybreaks
@@ -140,12 +143,22 @@
 
 \maketitle
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Key Points}:
+\vspace{-0.5em}
+\begin{itemize}[itemsep=0em, parsep=0em, topsep=0em]
+  \item Closure of schools and the statewide ``Stay Safe, Stay Home'' order have effectively reduced COVID-19 transmission in Connecticut, with incidence currently estimated to be XX (xx-xx) new infections per day.  
+  \item Substantial uncertainty remains in our knowledge of cumulative COVID-19 incidence, the proportion of infected individuals who are asympotomatic, infectiousness and transmissibility in children, and how contact patterns may change following reopening.  
+  \item If interpersonal contact increases quickly following reopening, the state is at risk of a substantial increase COVID-19 infections, hospitalizations, and deaths.
+\end{itemize}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section*{Introduction}
 
-Connecticut is one of the US states most severely impacted by the COVID-19 pandemic, with over 37,000 cases, 11,000 hospitalizations, and 3,400 deaths \citep{nyt2020Connecticut,atlantic2020data}.  Connecticut began interventions to slow transmission in mid March 2020.  On March 17, Governor Ned Lamont ordered all in-person classes at K-12 schools cancelled \citep{lamont2020exec7c}, and later extended the closure for the remainder of the 2019-2020 academic year \citep{lamont2020exec7l,lamont2020exec7x,lamont2020exec7ii}.  The Governor issued a statewide ``Stay Safe, Stay Home'' order to take effect on March 23 \citep{lamont2020exec7h}.  Evidence from device mobility data suggests that Connecticut residents reduced travel outside the home, and increased the number of hours per day spent at home \citep{google2020covid,facebook2020covid}. At the same time, the Governor ordered businesses closed, with the exception of essential businesses that could remain open with additional restrictions and guidelines to minimize close contact and risk of transmission. 
+Connecticut is one of the US states most severely impacted by the COVID-19 pandemic, with over 37,000 cases, 11,000 hospitalizations, and 3,400 deaths \citep{nyt2020Connecticut,atlantic2020data}.  On March 8, 2020, the first Connecticut COVID-19 case was found, and the state began interventions to slow transmission in mid March 2020.  On March 17, Governor Ned Lamont ordered all in-person classes at K-12 schools cancelled \citep{lamont2020exec7c}, and later extended the closure for the remainder of the 2019-2020 academic year \citep{lamont2020exec7l,lamont2020exec7x,lamont2020exec7ii}.  The Governor issued a statewide ``Stay Safe, Stay Home'' order to take effect on March 23 \citep{lamont2020exec7h}.  Evidence from device mobility data suggests that Connecticut residents reduced travel outside the home, and increased the number of hours per day spent at home \citep{google2020covid,facebook2020covid}. At the same time, the Governor ordered businesses closed, with the exception of essential businesses that could remain open with additional restrictions and guidelines to minimize close contact and risk of transmission. 
 
 
 % Reopening plans
@@ -154,37 +167,24 @@ The number of hospitalized COVID-19 patients in Connecticut peaked in mid April,
 
 % Need 
 
-As Connecticut reopens, policymakers need access to reliable information about the current state of the pandemic and likely future outcomes.  Elected officials and public health agencies already have access to near real-time information about COVID-19 case counts, hospitalizations, and deaths.  However, these data may not provide timely insight into the current and future dynamics of COVID-19.  Because viral testing of asymptomatic individuals is not yet widespread, symptomatic individuals at least 4-5 days from infection constititute the majority of testing recipients \citep{lauer2020incubation, bi2020epidemiology, li2020early, linton2020incubation, he2020estimation, salje2020estimating, wei2020presymptomatic}, and COVID-19 case counts or positive test proportion may be poor surrogate measures of current infection prevalence \comment{olya: ref?}.   Hospitalization may not occur until more than 2 or 3 weeks following infection, with deaths lagged even further \comment{olya: ref?}.  Second, current data may not provide information about what is likely to occur under reopening plans or interventions to be implemented in the future. As the state scales up its testing capacity, contact tracing, and initiates phased reopening of businesses, historical data on cases, hospitalizations, and deaths may not give insight into the possible effects of these future interventions.  Furthermore, early warning systems based on these lagging metrics may fail to provide state policymakers with the information they need to initiate a reversion to a more restrictive phase or implement other interventions to blunt a rising wave of new infections. 
+As Connecticut reopens, policymakers need access to reliable information about both the current state of the pandemic and likely future outcomes.  Elected officials and public health agencies already have access to near real-time information about COVID-19 testing, case counts, hospitalizations, and deaths.  However, these data may not provide timely insight into the current and future dynamics of COVID-19 transmission.  Because viral testing of asymptomatic individuals is not yet widespread, symptomatic individuals at least 4-5 days from infection may constititute the majority who seek testing \citep{lauer2020incubation, bi2020epidemiology, li2020early, linton2020incubation, he2020estimation, salje2020estimating, wei2020presymptomatic}, and COVID-19 case counts or positive test proportion may be poor surrogate measures of current infection prevalence.  Hospitalization may not occur until more than 2 or 3 weeks following infection, with deaths lagged even further \comment{olya: ref?}.  Furthermore, current data may not provide information about what is likely to occur under the Governor's stated reopening plans or interventions to be implemented in the future. As the state scales up its testing capacity, expands contact tracing, and initiates phased reopening of businesses, historical data on cases, hospitalizations, and deaths may not give insight into the possible effects of these interventions on future incidence.  Finally, early warning systems based on these lagging metrics may fail to provide state policymakers with the predictive information they need to initiate a reversion to a more restrictive phase or implement other interventions to blunt a coming wave of new infections. 
 
 % What we do in this report 
 
-In this report, we use a mathematical infectious disease transmission model to project COVID-19 incidence, prevalence, hospitalizations, and deaths in the state of Connecticut through August 31, 2020.  We consider population-level contact scenarios informed by the Connecticut Governor's phased reopening plans.  Model parameters are calibrated using data on hospitalizations and deaths in Connecticut and estimates from the literature on clinical epidemiology of COVID-19.  A separate technical report describes the data, transmission model, and calibration in detail \citep{morozova2020tech}.  The primary purpose of this report is to provide state and local decision-makers with information they can use to plan reopening of the state in a way that minimizes the risk of a resurgence in COVID-19 cases, hospitalizations, and deaths.  The secondary purpose is to assist state agencies and non-governmental organizations in implementation of public health responses, including testing, contact tracing, and design of incidence, infection prevalence, and seroprevalence studies. 
-
+In this report, we use a mathematical infectious disease transmission model to project COVID-19 incidence, prevalence, hospitalizations, and deaths in the state of Connecticut through August 31, 2020.  We consider population-level contact scenarios informed by the Connecticut Governor's phased reopening plans.  Model parameters are calibrated using data on hospitalizations and deaths in Connecticut and estimates from the literature on clinical epidemiology of COVID-19.  A separate technical report describes the data, transmission model, and calibration in detail \citep{morozova2020tech}.  The primary purpose of this report is to provide state and local decision-makers with information they can use to plan reopening of the state in a way that minimizes the risk of a resurgence in COVID-19 cases, hospitalizations, and deaths.  The secondary purpose of this report is to assist state agencies and non-governmental organizations in implementation of public health responses, including testing, contact tracing, and design of incidence, infection prevalence, and seroprevalence studies. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section*{COVID-19 projections: March 1 to August 31, 2020}
 
-We present projections of COVID-19 incidence, prevalence, hospitalizations, and deaths from March 1 to August 31, 2020.  Projections prior to May 20, 2020 are calibrated to historical hospitalization and death data obtained from New York Times \citep{nyt2020Connecticut} and Connecticut State Department of Public Health \citep{DPHwebsite}.  County-level hospitalizations are obtained from the Connecticut Hospital Association~\citep{CHAwebsite}. We obtained county populations from the 2014--2018 estimates of the American Community Survey~\citep{acs2018} and geographic boundary files were downloaded from the Connecticut Department of Environmental Protection~\citep{shapefile}.  Projections beyond May 20 depend on assumptions about the nature of contact and viral testing in the future, under the Governor's plan for reopening the state.  Projections and 90\% uncertainty intervals show the range of possible outcomes over the summer in under ``slow'' and ``fast'' reopening scenarios.  
+We present projections of COVID-19 incidence, prevalence, hospitalizations, and deaths from March 1 to August 31, 2020.  Projections and 90\% uncertainty intervals show the range of possible outcomes over the summer in under ``slow'' and ``fast'' reopening scenarios.  Projections prior to May 20, 2020 are calibrated to historical hospitalization and death data obtained from the New York Times \citep{nyt2020Connecticut} and the Connecticut Department of Public Health \citep{DPHwebsite}.  County-level hospitalization and bed capacity are obtained from the Connecticut Hospital Association~\citep{CHAwebsite}. We use county populations from the 2014--2018 estimates of the American Community Survey~\citep{acs2018} and geographic boundary files were obtained from the Connecticut Department of Environmental Protection~\citep{shapefile}.  Projections beyond May 20 depend on assumptions about the nature of contact and viral testing in the future, under the Governor's plan for reopening the state \citep{ct2020coronavirus}.  
 
 A separate technical report describes the data, transmission model, calibration, and uncertainty calculation in greater detail \citep{morozova2020tech}.  Briefly, we employ a modified compartmental susceptible-exposed-infectious-removed (SEIR) transmission model that accommodates asymptomatic, mildly symptomatic, and severe cases, with additional compartments for hospitalizations, unhospitalized severe infections in the case of hospital overflow, patients in nursing homes and assisted living facilities, and deaths. 
-Exposed individuals are assumed to become infectious 4 days after exposure (ref). Mildly symptomatic individuals are assumed to self-isolate shortly after they develop symptoms and remain in isolation until recovery. Asymptomatic individuals are assumed to shed the virus at lower intensity compared to symptomatic cases, but remain infectious for a longer period in the absence of wide-spread testing. All severe cases are assumed to require hospitalization, and those occurring in closed facilities, such as nursing homes or assisted living facilities, are tracked separately. Only severe cases can result in death.  We assume that COVID-19 infection confers lasting immunity to new infection at least within the projection time interval.  
+Exposed individuals are assumed to become infectious 4 days after exposure \comment{ref}.  Mildly symptomatic individuals are assumed to self-isolate shortly after they develop symptoms and remain in isolation until recovery. Asymptomatic individuals are assumed to be less transmissible compared to symptomatic cases, but remain infectious for a longer period in the absence of widespread testing. All severe cases are assumed to require hospitalization. Severe cases occurring in closed facilities, such as nursing homes or assisted living facilities, are tracked separately. Only severe cases can result in death. We assume that COVID-19 infection confers lasting immunity to new infection at least within the projection time interval of March 1 to August 31, 2020.  
 
-Due to high uncertainty about the proportion of asymptomatic infections \comment{ref} in the absence of representative seroprevalence surveys, we consider three scenarios with a low (0.36), medium (0.5) and high (0.7) proportions of asymptomatic infections. We further assume that 10\% of symptomatic infections are severe (ref). Severe cases transition through a latent period, pre-hospitalization infectious period, hospitalization period, and eventually either recover or die. We assume that hospitalizations and deaths are reported with a lag and account for this lag when we match projections to observations. Reporting lags along with average time spent at various stages preceding hospitalization and death are calibrated to observations. Average reporting lag for hospitalizations is shorter than that of deaths due to a latter be a mixture of deaths occurring in hospitals and in nursing homes.  We consider a wide range of plausible values of the key model parameters and calibrate a joint posterior distribution of these parameters to observations assuming Poisson likelihood. Calibration was performed separately for each scenario (low, medium, and high asymptomatic fraction).
-
-Though we focus here on projections for the state of Connecticut as a whole, the model is structured by county, with adjacent counties having more cross-transmission than non-adjacent counties.  Reopening scenarios are represented in the projection model by a schedule of proportional increases in contact, beginning on May 20, 2020. Slow versus fast reopening scenarios are parameterized by monthly versus weekly release of 10\% of suppressed contact. 
-Following reopening, viral testing and contact tracing are assumed to increase the rate of isolation of infected individuals. In particular, we assume that asymptomatic individuals are infectious for an average of 7 days, and mildly symptomatic cases are infectious for 4 days, of which 1.5 days is assumed to constitute a presymptomatic infectious period \comment{ref}. Wide-spread testing and contact tracing may reduce the average duration of infectiousness of asymptomatic individuals to \comment{XX} days and mildly symptomatic to \comment{xx} days \comment{calculate based on our working assumption about testing effects.}
-
-%\comment{Olya: please give a high-level overview of the model and important parameter values}
-%Transmissibility ...
-%Asymptomatic/mild/severe fractions...
-%\comment{Briefly discuss lagging hospitalizations and deaths to match reporting.}
-
-%\comment{Summarize calibration and statistical fitting in 1-2 sentences. }
-
+Due to uncertainty about the proportion of asymptomatic infections \comment{ref}, \comment{We are just looking at medium now} we consider three scenarios with a low (0.36), medium (0.5) and high (0.7) proportions of asymptomatic infections. We further assume that 10\% of symptomatic infections are severe \comment{ref}. Severe cases transition through a latent period, pre-hospitalization infectious period, hospitalization period, and eventually either recover or die. We assume that hospitalizations and deaths are reported with a lag and account for this lag when we match projections to observations. Reporting lags along with average time spent at various stages preceding hospitalization and death are calibrated to observations. Average reporting lag for hospitalizations is shorter than that of deaths due to the latter being a combination of deaths occurring in hospitals and in nursing facilities.  We consider a wide range of plausible values for each of of the key model parameters.  \comment{Statistical calibration was performed separately for each scenario (low, medium, and high asymptomatic fraction).}
 Figure \ref{fig:calibration} shows current COVID-19 hospitalization census and cumulative death projections from March 1 to May 20, 2020.  Projections match observed data well, and data points largely fall within prediction uncertainty regions. 
-
 
 \begin{figure}
 \centering
@@ -193,16 +193,22 @@ Figure \ref{fig:calibration} shows current COVID-19 hospitalization census and c
 \label{fig:calibration}
 \end{figure}
 
+Though we present projections for the state of Connecticut as a whole, the COVID-19 transmission model is structured by county, with adjacent counties having more cross-transmission than non-adjacent counties.  Reopening scenarios are represented in the projection model by a schedule of proportional increases in contact, beginning on the stated reopening date of May 20, 2020. Slow versus fast reopening scenarios are parameterized by monthly versus weekly release of 10\% of suppressed contact.  Following reopening, viral testing and contact tracing are assumed to increase the rate of isolation of infected individuals. In particular, we assume that asymptomatic individuals are infectious for an average of 7 days, and mildly symptomatic cases are infectious for 4 days, of which 1.5 days is assumed to constitute a pre-symptomatic infectious period \comment{ref}. Widespread testing and contact tracing may reduce the average duration of infectiousness of asymptomatic individuals to \comment{XX} days and mildly symptomatic to \comment{xx} days \comment{calculate based on our working assumption about testing effects.}
+
+
+
+
+
 
 \subsection*{Projections under slow reopening} 
 
-Figure \ref{fig:slow} shows projections of daily incidence, cumulative incidence, hospitalizations, and deaths under a ``slow'' reopening scenario. At one-month intervals, 10\% of the suppressed contact (relative to March 1 baseline) is released.  In these projections, contact rates are at baseline in early March, dropping a total of about 80\% due to closure of schools and implementation of the ``Stay Safe, Stay Home'' order.  Daily incidence increases immediately following reopening, but decays and stays low until mid August.  Hospital census continues its gradual decline through June, flattening in July, and rising again slightly in August. Deaths rise slowly, with the greatest increases occurring in August. Between 4,700 and 7,100 deaths are projected by September 1.  
+Figure \ref{fig:slow} shows projections of daily incidence, cumulative incidence, hospitalizations, and deaths under a ``slow'' reopening scenario. At one-month intervals, 10\% of the suppressed contact (relative to March 1 baseline) is released.  In these projections, contact rates are at baseline in early March, dropping a total of \comment{about 80\%} due to closure of schools and the ``Stay Safe, Stay Home'' order.  Under this slow reopening scenario, daily incidence increases following reopening, but decays and stays low until mid August.  Hospital census continues its gradual decline through June, flattening in July, and rising again slightly in August. Deaths rise slowly, with the greatest increases occurring in August. Between 4,700 and 7,100 deaths are projected by September 1.  
 
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/slow.pdf}
-\caption{Projections under a ``slow'' reopening scenario in which 10\% of suppressed contact is released every 30 days, starting on May 20, 2020. Clockwise from top left: population-level historical and projected contact patterns, daily COVID-19 incidence, hospital census, and deaths. }
+\caption{Projections under a ``slow'' reopening scenario in which 10\% of suppressed contact is released every 30 days, starting on May 20, 2020. Clockwise from top left: population-level historical and projected contact patterns, daily COVID-19 incidence, hospital census, and deaths. The dashed line above hospitalization projections is an estimate of the hospital bed capacity in Connecticut \citep{cha}. }
 
 \label{fig:slow}
 \end{figure}
@@ -211,12 +217,12 @@ Figure \ref{fig:slow} shows projections of daily incidence, cumulative incidence
 
 \subsection*{Projections under fast reopening} 
 
-Figure \ref{fig:fast} shows projections of daily incidence, cumulative incidence, hospitalizations, and deaths under a ``fast'' reopening scenario. At one-week intervals, 10\% of the suppressed contact is released.   In contrast to the ``slow'' scenario described above, here contact increases rapidly, and by the end of July, incidence rises above levels seen in March.  By the beginning of September, hospital capacity may be breached, resulting in a sharp rise in deaths. Though there is uncertainty about the speed of rise in hospitalizations and deaths in July-August under a fast reopening scenario, this second wave is likely to occur. Between 6,300 and 14,700 deaths are projected by September 1. 
+Figure \ref{fig:fast} shows projections of daily incidence, cumulative incidence, hospitalizations, and deaths under a ``fast'' reopening scenario. At one-week intervals, 10\% of the suppressed contact is released.   In contrast to the ``slow'' scenario described above, here contact increases rapidly, and by the end of July, daily incidence rises above levels seen in March.  By the beginning of September, hospital capacity may be exceeded, resulting in a sharp rise in deaths.  Though there is uncertainty about the speed and timing of this predicted rise in hospitalizations and deaths in July-August under a fast reopening scenario, this second wave is likely to occur. Between 6,300 and 14,700 deaths are projected by September 1.  
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{figures/fast.pdf}
-\caption{Projections under a ``fast'' reopening scenario in which 10\% of suppressed contact is released every 14 days, starting on May 20, 2020.  Clockwise from top left: population-level historical and projected contact patterns, daily COVID-19 incidence, hospital census, and deaths. }
+\caption{Projections under a ``fast'' reopening scenario in which 10\% of suppressed contact is released every 14 days, starting on May 20, 2020.  Clockwise from top left: population-level historical and projected contact patterns, daily COVID-19 incidence, hospital census, and deaths. The dashed line above hospitalization projections is an estimate of the hospital bed capacity in Connecticut \citep{cha}, which may be exceeded during August in this scenario. }
 \label{fig:fast}
 \end{figure}
 
@@ -226,7 +232,7 @@ Figure \ref{fig:fast} shows projections of daily incidence, cumulative incidence
 
 \section*{Implications}
 
-The COVID-19 outbreak in Connecticut is currently declining, with hospitalization census and the number of deaths per day decreasing since mid April.  However, as the state reopens, there is a risk that increased contact will result in a second wave of COVID-19 transmission, leading to an increase in hospitalizations and deaths.  If contact remains low throughout the summer, with only minimal increases due to reopening, a possible second wave will be blunted and pushed into the future.  On the other hand, if contact returns quickly to a level seen in early March, then a resurgence in hospitalizations and deaths is likely to occur in August.  Importantly, Connecticut decision-makers may not know which of these scenarios is occurring until sometime in July.  
+The COVID-19 outbreak in Connecticut is currently declining, with hospitalization census decreasing on most days since mid April.  Daily incidence is currently estimated to be \comment{xx (xx-xx)}.  However, as the state reopens, there is a risk that increased contact will result in a second wave of COVID-19 transmission, leading to an increase in cases, hospitalizations and deaths.  If contact remains low throughout the summer, with only minimal increases due to reopening, a possible second wave will be blunted and pushed into Fall of 2020.  On the other hand, if contact returns quickly to a level seen in early March, then a sharp resurgence in hospitalizations and deaths is likely to occur in August.  Importantly, Connecticut decision-makers may not know which of these scenarios is occurring until sometime in July.  
 
 
 \subsection*{Risk of resurgence following reopening} 
