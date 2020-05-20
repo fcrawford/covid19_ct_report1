@@ -164,22 +164,17 @@ In this report, we use a mathematical infectious disease transmission model to p
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section*{COVID-19 projections} 
+\section*{COVID-19 projections: March 1 to August 31, 2020}
 
-We present projections of COVID-19 incidence, prevalence, hospitalizations, and deaths from March 1 to August 31, 2020.  Projections prior to May 20, 2020 are calibrated to historical hospitalization and death data obtained from New York Times \citep{nyt2020Connecticut} and Connecticut State Department of Public Health \citep{DPHwebsite}. Projections beyond May 20 depend on assumptions about the nature of contact and viral testing in the future, under the Governor's plan for reopening the state.  Projections and 90\% uncertainty intervals show the range of possible outcomes over the summer in under ``slow'' and ``fast'' reopening scenarios.  
-
-
-County-level hospitalizations are obtained from the Connecticut Hospital Association~\citep{CHAwebsite}. We obtained county populations from the 2014--2018 estimates of the American Community Survey~\citep{acs2018} and geographic boundary files were downloaded from the Connecticut Department of Environmental Protection~\citep{shapefile}. 
+We present projections of COVID-19 incidence, prevalence, hospitalizations, and deaths from March 1 to August 31, 2020.  Projections prior to May 20, 2020 are calibrated to historical hospitalization and death data obtained from New York Times \citep{nyt2020Connecticut} and Connecticut State Department of Public Health \citep{DPHwebsite}.  County-level hospitalizations are obtained from the Connecticut Hospital Association~\citep{CHAwebsite}. We obtained county populations from the 2014--2018 estimates of the American Community Survey~\citep{acs2018} and geographic boundary files were downloaded from the Connecticut Department of Environmental Protection~\citep{shapefile}.  Projections beyond May 20 depend on assumptions about the nature of contact and viral testing in the future, under the Governor's plan for reopening the state.  Projections and 90\% uncertainty intervals show the range of possible outcomes over the summer in under ``slow'' and ``fast'' reopening scenarios.  
 
 A separate technical report describes the data, transmission model, calibration, and uncertainty calculation in greater detail \citep{morozova2020tech}.  Briefly, we employ a modified compartmental susceptible-exposed-infectious-removed (SEIR) transmission model that accommodates asymptomatic, mildly symptomatic, and severe cases, with additional compartments for hospitalizations, unhospitalized severe infections in the case of hospital overflow, patients in nursing homes and assisted living facilities, and deaths. 
 Exposed individuals are assumed to become infectious 4 days after exposure (ref). Mildly symptomatic individuals are assumed to self-isolate shortly after they develop symptoms and remain in isolation until recovery. Asymptomatic individuals are assumed to shed the virus at lower intensity compared to symptomatic cases, but remain infectious for a longer period in the absence of wide-spread testing. All severe cases are assumed to require hospitalization, and those occurring in closed facilities, such as nursing homes or assisted living facilities, are tracked separately. Only severe cases can result in death.  We assume that COVID-19 infection confers lasting immunity to new infection at least within the projection time interval.  
 
-Due to high uncertainty about the proportion of asymptomatic infections (ref) in the absence of representative seroprevalence surveys, we consider three scenarios with a low (0.36), medium (0.5) and high (0.7) proportions of asymptomatic infections. We further assume that 10\% of symptomatic infections are severe (ref). Severe cases transition through a latent period, pre-hospitalization infectious period, hospitalization period, and eventually either recover or die. We assume that hospitalizations and deaths are reported with a lag and account for this lag when we match projections to observations. Reporting lags along with average time spent at various stages preceding hospitalization and death are calibrated to observations. Average reporting lag for hospitalizations is shorter than that of deaths due to a latter be a mixture of deaths occurring in hospitals and in nursing homes.  
-
-We consider a wide range of plausible values of the key model parameters and calibrate a joint posterior distribution of these parameters to observations assuming Poisson likelihood. Calibration was performed separately for each scenario (low, medium, and high asymptomatic fraction).
+Due to high uncertainty about the proportion of asymptomatic infections \comment{ref} in the absence of representative seroprevalence surveys, we consider three scenarios with a low (0.36), medium (0.5) and high (0.7) proportions of asymptomatic infections. We further assume that 10\% of symptomatic infections are severe (ref). Severe cases transition through a latent period, pre-hospitalization infectious period, hospitalization period, and eventually either recover or die. We assume that hospitalizations and deaths are reported with a lag and account for this lag when we match projections to observations. Reporting lags along with average time spent at various stages preceding hospitalization and death are calibrated to observations. Average reporting lag for hospitalizations is shorter than that of deaths due to a latter be a mixture of deaths occurring in hospitals and in nursing homes.  We consider a wide range of plausible values of the key model parameters and calibrate a joint posterior distribution of these parameters to observations assuming Poisson likelihood. Calibration was performed separately for each scenario (low, medium, and high asymptomatic fraction).
 
 Though we focus here on projections for the state of Connecticut as a whole, the model is structured by county, with adjacent counties having more cross-transmission than non-adjacent counties.  Reopening scenarios are represented in the projection model by a schedule of proportional increases in contact, beginning on May 20, 2020. Slow versus fast reopening scenarios are parameterized by monthly versus weekly release of 10\% of suppressed contact. 
-Following reopening, viral testing and contact tracing are assumed to increase the rate of isolation of infected individuals. In particular, we assume that asymptomatic individuals are infectious for an average of 7 days, and mildly symptomatic cases are infectious for 4 days, of which 1.5 days is assumed to constitute a presymptomatic infectious period (ref). Wide-spread testing and contact tracing may reduce the average duration of infectiousness of asymptomatic individuals to XX days and mildly symptomatic to XX days \comment{calculate based on our working assumption about testing effects.}
+Following reopening, viral testing and contact tracing are assumed to increase the rate of isolation of infected individuals. In particular, we assume that asymptomatic individuals are infectious for an average of 7 days, and mildly symptomatic cases are infectious for 4 days, of which 1.5 days is assumed to constitute a presymptomatic infectious period \comment{ref}. Wide-spread testing and contact tracing may reduce the average duration of infectiousness of asymptomatic individuals to \comment{XX} days and mildly symptomatic to \comment{xx} days \comment{calculate based on our working assumption about testing effects.}
 
 %\comment{Olya: please give a high-level overview of the model and important parameter values}
 %Transmissibility ...
@@ -201,14 +196,14 @@ Figure \ref{fig:calibration} shows current COVID-19 hospitalization census and c
 
 \subsection*{Projections under slow reopening} 
 
-Figure \ref{fig:slow} shows projections of daily incidence, cumulative incidence, hospitalizations, and deaths under a ``slow'' reopening scenario. At one-month intervals, 10\% of the suppressed contact (relative to March 1 baseline) is released. In these projections, \comment{incidence...} Hospital census continues its gradual decline through June, flattening in July, and rising again in August. Deaths rise slowly, with the greatest increases occurring in August. 
+Figure \ref{fig:slow} shows projections of daily incidence, cumulative incidence, hospitalizations, and deaths under a ``slow'' reopening scenario. At one-month intervals, 10\% of the suppressed contact (relative to March 1 baseline) is released.  In these projections, contact rates are at baseline in early March, dropping a total of about 80\% due to closure of schools and implementation of the ``Stay Safe, Stay Home'' order.  Daily incidence increases immediately following reopening, but decays and stays low until mid August.  Hospital census continues its gradual decline through June, flattening in July, and rising again slightly in August. Deaths rise slowly, with the greatest increases occurring in August. Between 4,700 and 7,100 deaths are projected by September 1.  
 
 
 \begin{figure}
 \centering
-\comment{slow reopen placeholder}
-%\includegraphics[width=\textwidth]{figures/slow.pdf}
-\caption{Projections under a ``slow'' reopening scenario. }
+\includegraphics[width=\textwidth]{figures/slow.pdf}
+\caption{Projections under a ``slow'' reopening scenario in which 10\% of suppressed contact is released every 30 days, starting on May 20, 2020. Clockwise from top left: population-level historical and projected contact patterns, daily COVID-19 incidence, hospital census, and deaths. }
+
 \label{fig:slow}
 \end{figure}
 
@@ -216,17 +211,14 @@ Figure \ref{fig:slow} shows projections of daily incidence, cumulative incidence
 
 \subsection*{Projections under fast reopening} 
 
-Figure \ref{fig:fast} shows projections of daily incidence, cumulative incidence, hospitalizations, and deaths under a ``fast'' reopening scenario. At one-week intervals, 10\% of the suppressed contact is released.   
+Figure \ref{fig:fast} shows projections of daily incidence, cumulative incidence, hospitalizations, and deaths under a ``fast'' reopening scenario. At one-week intervals, 10\% of the suppressed contact is released.   In contrast to the ``slow'' scenario described above, here contact increases rapidly, and by the end of July, incidence rises above levels seen in March.  By the beginning of September, hospital capacity may be breached, resulting in a sharp rise in deaths. Though there is uncertainty about the speed of rise in hospitalizations and deaths in July-August under a fast reopening scenario, this second wave is likely to occur. Between 6,300 and 14,700 deaths are projected by September 1. 
 
 \begin{figure}
 \centering
-\comment{fast reopen placeholder}
-%\includegraphics[width=\textwidth]{figures/fast.pdf}
-\caption{Projections under a ``fast'' reopening scenario. }
+\includegraphics[width=\textwidth]{figures/fast.pdf}
+\caption{Projections under a ``fast'' reopening scenario in which 10\% of suppressed contact is released every 14 days, starting on May 20, 2020.  Clockwise from top left: population-level historical and projected contact patterns, daily COVID-19 incidence, hospital census, and deaths. }
 \label{fig:fast}
 \end{figure}
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -248,17 +240,10 @@ Enhanced viral testing, especially of asymptomatic individuals, may help provide
 
 Daily new infections are not observable, but can be estimated...
 
-Figure \ref{fig:dailyincidence} shows daily incidence 
 
 
 
 
-\begin{figure}
-\centering
-% \includegraphics...
-\caption{\comment{show daily incidence}}
-\label{fig:dailyncidence}
-\end{figure}
 
 
 
@@ -285,15 +270,16 @@ Many important epidemiologic parameters that can help in forecasting and evaluat
 
 
 
-\subsection*{Uncertainty about transmissibility in children}
+\subsection*{Beyond September 2020}
 
-Children are unlikely to experience severe symptoms when infected with COVID-19 \citep{verity2020estimates}. For this reason, epidemiologists do not yet know how infectious school-age children may be when they are infected, and epidemiological studies have provided conflicting evidence regarding viral shedding and transmissibility in children \comment{OM: I don't have a reference for this, need to look}. Because Connecticut closed K-12 schools approximately only one week before the stay-at-home order took effect, we do not have specific information about the isolated effect of closing schools on the subsequent reduction in transmission.  If child care and summer camps reopen as planned at the end of June [ref], we may be able to gain information about transmissibility in children from any subsequent increase in cases observed among people who are more likely to be symptomatic.  This information will be useful in projecting COVID-19 dynamics in the Fall if K-12 education will take place in person. 
+Three unknown features of COVID-19 epidemiology make projections beyond September 1 uncertain. 
 
-While no conclusive evidence is available, higher asymptomatic and mildly symptomatic fraction among school-aged children is likely consistent with lower viral shedding in this age group. This, however, does not necessarily imply lower infectiousness. School-aged children may still play an important role in the epidemic dynamics due to their behavioral characteristics involving higher number of close contacts, as well as unavoidable contacts with adults both at school and at home. 
+First, epidemiologists do not yet know how infectious school-age children may be when they are infected, and epidemiological studies have provided conflicting evidence regarding viral shedding and transmissibility in children \comment{ref}.  Children are unlikely to experience severe symptoms when infected with COVID-19 \citep{verity2020estimates}.  Because Connecticut closed K-12 schools approximately only one week before the stay-at-home order took effect, we do not have specific information about the isolated effect of closing schools on the subsequent reduction in transmission.  If child care and summer camps reopen as planned at the end of June \comment{ref}, we may be able to gain information about transmissibility in children from any subsequent increase in cases observed among people who are more likely to be symptomatic.  This information will be useful in projecting COVID-19 dynamics in the Fall if K-12 education will take place in person.  While no conclusive evidence is available, higher asymptomatic and mildly symptomatic fraction among school-aged children is likely consistent with lower viral shedding in this age group. This, however, does not necessarily imply lower infectiousness. School-aged children may still play an important role in the epidemic dynamics due to their behavioral characteristics involving higher number of close contacts, as well as unavoidable contacts with adults both at school and at home. 
 
+Second, seasonality and temperature dependence of COVID-19 transmission 
 
-\comment{Olya, can you write a few sentences and give references for what we know and don't know about transmission in children?} \\
-\comment{I have not seen studies looking at this issue. If we have time, I will look later. I added a sentence highlighting that low viral shedding does not equal low infectiousness if we factor in contact frequency and types of contacts, as well as the fact that children can't be isolated (they live with parents, while many adults live alone).}
+Third \comment{lasting immunity} 
+
 
 
 
