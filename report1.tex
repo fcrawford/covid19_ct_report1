@@ -17,8 +17,7 @@
 
 \usepackage[sort&compress,numbers]{natbib}
 
-\usepackage{enumitem}
-
+% \usepackage{enumitem}
 
 \usepackage{mathptmx}
 %\usepackage[scaled]{helvet}
@@ -42,6 +41,8 @@
 \usepackage{setspace}
 
 %\usepackage{endfloat}
+\usepackage[colorlinks,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
+
 
 
 
@@ -149,7 +150,10 @@
 
 \textbf{Key Points}:
 \vspace{-0.5em}
-\begin{itemize}[itemsep=0em, parsep=0em, topsep=0em]
+\begin{itemize}%[itemsep=0em, parsep=0em, topsep=0em]
+	\setlength\itemsep{0em}
+	\setlength\parsep{0em}
+	\setlength\topsep{0em}
   \item Closure of schools and the statewide ``Stay Safe, Stay Home'' order have effectively reduced COVID-19 transmission in Connecticut, with incidence currently estimated at about 1,500 new infections per day.
   \item If close interpersonal contact increases quickly in Connecticut following reopening on May 20, the state is at risk of a substantial increase COVID-19 infections, hospitalizations, and deaths by late Summer 2020.
   \item Real-time metrics including case counts, hospitalizations, and deaths may fail to provide enough advance warning to avoid resurgence.  
