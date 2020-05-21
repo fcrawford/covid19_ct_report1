@@ -127,9 +127,9 @@
 
 \author{
   Forrest W. Crawford$^{1,2,3,4}$,
-  Olga Morozova$^{1}$, 
+  Zehang Richard Li$^1$,
   and
-  Zehang Richard Li$^1$
+  Olga Morozova$^{1}$
   \\[1em]
 \small 1. Department of Biostatistics, Yale School of Public Health \\
 \small 2. Department of Statistics \& Data Science, Yale University \\
@@ -193,7 +193,9 @@ We present projections of COVID-19 incidence, hospitalizations, and deaths from 
 
 A separate technical report describes the data, transmission model, calibration, and uncertainty calculation in greater detail \citep{morozova2020tech}.  Briefly, we employ a modified compartmental susceptible-exposed-infectious-removed (SEIR) transmission model that accommodates asymptomatic, mildly symptomatic, and severe cases, with additional compartments for hospitalizations, unhospitalized severe infections in the case of hospital overflow, patients in nursing homes and assisted living facilities, and deaths. Exposed individuals are assumed to become infectious 4 days after infection \citep{lauer2020incubation, bi2020epidemiology, li2020early, linton2020incubation, he2020estimation, salje2020estimating, wei2020presymptomatic}.  Mildly symptomatic individuals are assumed to self-isolate on average 4 days after they develop symptoms, and subsequently remain in isolation until recovery. Asymptomatic individuals are assumed to be less transmissible compared to symptomatic cases, but remain infectious 7 days in the absence of widespread testing. All severe cases are assumed to require hospitalization. Severe cases occurring in closed facilities, such as nursing homes or assisted living facilities, are tracked separately. Only severe cases can result in death. We assume that COVID-19 infection confers lasting immunity to new infection at least within the projection time interval of March 1 to August 31, 2020.  
 
-In this report we present results assuming 50\% of infections are asymptomatic, though there is still uncertainty about this quantity \citep{he2020estimation, nishiura2020estimation, mizumoto2020estimating, emery2020contribution}.  We assume that 10\% of symptomatic infections are severe and require hospitalization \citep{verity2020estimates, bi2020epidemiology, salje2020estimating}.  Severe cases transition through a latent period, pre-hospitalization infectious period, hospitalization period, and eventually either recover or die. We assume that hospitalizations and deaths are reported with a lag and account for this lag when we match projections to observations. Reporting lags along with average time spent at various stages preceding hospitalization and death are calibrated to observations. Average reporting lag for hospitalizations is shorter than that of deaths due to the latter being a combination of deaths occurring in hospitals and in nursing facilities.  Figure \ref{fig:calibration} shows current COVID-19 hospitalization census and cumulative death projections from March 1 to May 20, 2020.  Projections match observed data well, and data points largely fall within prediction uncertainty regions.  Additional calibrated projections under low (36\%) and high (70\%) asymptomatic fractions are provided in a separate technical report \citep{morozova2020tech}.  
+In this report we present results assuming 50\% of infections are asymptomatic, though there is still uncertainty about this quantity \citep{he2020estimation, nishiura2020estimation, mizumoto2020estimating, emery2020contribution}.  We assume that 10\% of symptomatic infections are severe and require hospitalization \citep{verity2020estimates, bi2020epidemiology, salje2020estimating}.  Severe cases transition through a latent period, pre-hospitalization infectious period, hospitalization period, and eventually either recover or die. We assume that hospitalizations and deaths are reported with a lag and account for this lag when we match projections to observations. Reporting lags along with average time spent at various stages preceding hospitalization and death are calibrated to observations. Average reporting lag for hospitalizations is shorter than that of deaths due to the latter being a combination of deaths occurring in hospitals and in nursing facilities.  Figure \ref{fig:calibration} shows current COVID-19 hospitalization census and cumulative death projections from March 1 to May 20, 2020.  Projections match observed data well, and data points largely fall within prediction uncertainty regions.  
+
+Additional calibrated projections under low (36\%) and high (70\%) asymptomatic fractions are provided in a separate technical report \citep{morozova2020tech}.  Briefly, when asymptomatic fraction is high, we see more infections, hospitalizations and deaths by the end of Summer.  Under slow reopening, hospitalization capacity is not expected to be overwhelmed under any of the scenarios.  In case of fast reopening, hospitalization capacity would likely be exceeded sooner if the asymptomatic fraction is high. Differing assumptions about the asymptomatic fraction can result in large differences in estimated cumulative incidence proportion.  By the end of Summer, cumulative incidence may be as low as 0.1 under low asymptomatic fraction with slow reopening, or as high as 0.65 under high asymptomatic fraction with fast reopening. The latter scenario predicts the second peak of infections to occur in mid-August, while all other scenarios predict that the second peak would not occur until later in the Fall. While a higher asymptomatic fraction would result in a higher number of deaths in the short-term, the total number of deaths by the end of the epidemic would likely be higher if the asymptomatic fraction is low. 
 
 \begin{figure}
 \centering
@@ -203,8 +205,6 @@ In this report we present results assuming 50\% of infections are asymptomatic, 
 \end{figure}
 
 Though we present projections for the state of Connecticut as a whole, the COVID-19 transmission model is structured by county, with transmission allowed between adjacent counties. Reopening scenarios are represented in the projection model by a schedule of proportional increases in contact, beginning on the stated reopening date of May 20, 2020. Slow versus fast reopening scenarios are parameterized by monthly versus weekly release of 10\% of suppressed contact.  Following reopening, viral testing and contact tracing are assumed to increase the rate of isolation of infected individuals. In particular, we assume that asymptomatic individuals are infectious for an average of 7 days, and mildly symptomatic cases are infectious for 4 days, of which 1.5 days is assumed to constitute a pre-symptomatic infectious period \citep{li2020substantial, kissler2020projecting, salje2020estimating, wolfel2020virological, wei2020presymptomatic}. Expanded testing and contact tracing, implemented in the weeks following reopening, are assumed to reduce the average duration of infectiousness of asymptomatic individuals to 5.8 days and mildly symptomatic to 2.7 days. 
-
-
 
 
 \subsection*{Projections under slow reopening} 
@@ -232,6 +232,10 @@ Figure \ref{fig:fast} shows projections of daily incidence, cumulative incidence
 \caption{Projections under a ``fast'' reopening scenario in which 10\% of suppressed contact is released every 14 days, starting on May 20, 2020, with 95\% uncertainty intervals.  Clockwise from top left: population-level historical and projected contact patterns, daily COVID-19 incidence, hospital census, and deaths. The dashed line above hospitalization projections is an estimate of the hospital bed capacity in Connecticut \citep{CHAwebsite}, which may be exceeded during August in this scenario. }
 \label{fig:fast}
 \end{figure}
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
