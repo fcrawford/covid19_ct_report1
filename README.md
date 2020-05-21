@@ -18,13 +18,13 @@ https://github.com/fcrawford/covid19_ct_report1/releases
 
 ## Citation 
 
-> Forrest W. Crawford, Olga Morozova, and Zehang Richard Li. "COVID-19 projections for reopening Connecticut" 2020 
+> Forrest W. Crawford, Zehang Richard Li, and Olga Morozova. "COVID-19 projections for reopening Connecticut" 2020 
 
 
 Bibtex: 
 ```
 @article{crawford2020covid,
-    author = {Forrest W. Crawford and Olga Morozova and Zehang Richard Li},
+    author = {Forrest W. Crawford and Zehang Richard Li and Olga Morozova},
     title = {COVID-19 projections for reopening Connecticut},
     url = {https://github.com/fcrawford/covid19_ct_report1/releases},
     journal = {Working Paper},
