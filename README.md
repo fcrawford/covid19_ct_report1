@@ -8,12 +8,13 @@ This repository contains source files for the report "COVID-19 projections for r
 
 ## COVID-19 projections for Connecticut project page 
 
-http://crawford-lab.github.io/tree/master/covid19_ct
+<http://crawford-lab.github.io//covid19_ct>
 
 
 
 ## Releases for this report
-https://github.com/fcrawford/covid19_ct_report1/releases
+
+<https://github.com/fcrawford/covid19_ct_report1/releases>
 
 
 ## Citation 
